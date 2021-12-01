@@ -1,0 +1,1 @@
+beeline -u "" -f hive_test.hql
