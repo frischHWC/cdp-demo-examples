@@ -7,5 +7,5 @@ spark-submit \
     --deploy-mode cluster \
     --principal {{ kerb_user }} \
     --keytab {{ kerb_keytab }} \
-    --py-files python_files.zip \
-    App.py 
+    --py-files App.py,AppConfig.py,Treatment.py \
+    App.py
