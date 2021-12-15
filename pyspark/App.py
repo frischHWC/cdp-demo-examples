@@ -1,7 +1,6 @@
 from pyspark import SparkContext, SparkConf
 from pyspark.sql import SparkSession
-
-from Treatment import *
+from pyspark.sql.types import IntegerType
 from AppConfig import *
 
 
@@ -14,7 +13,10 @@ def main():
         .appName(app_name) \
         .getOrCreate()
 
-    treatment_sql(spark)
+    rdd = spark.sparkContext.parallelize(range(1, 10000), 10)
+    df = spark.createDataFrame(rdd, IntegerType())
+
+    df.count()
 
     spark.stop()
     
