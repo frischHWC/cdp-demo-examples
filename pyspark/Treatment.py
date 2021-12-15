@@ -1,4 +1,5 @@
 from AppConfig import *
+from pyspark.sql.types import IntegerType
 
 
 def treatment_sql(spark):
@@ -7,11 +8,10 @@ def treatment_sql(spark):
     :param spark:
     :return:
     """
-    path = hdfs + hdfs_home_dir + "random-data.csv"
-    df_init = spark.read \
-        .csv(path=path, header=True)
+    rdd = spark.sparkContext.parallelize(range(1, 10000), 10)
+    df = spark.createDataFrame(rdd, IntegerType())
 
-    df_init.select("name").show()
+    df.count()
     
 
 

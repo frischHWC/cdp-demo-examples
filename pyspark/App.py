@@ -11,19 +11,15 @@ def main():
     sc = SparkContext(conf=conf)
     
 
-    
     spark = SparkSession \
         .builder \
         .appName(app_name) \
-        .config("spark.sql.streaming.schemaInference", "true") \
         .getOrCreate()
 
     treatment_sql(spark)
     
 
     
-
-
 if __name__ == "__main__":
 
     main()

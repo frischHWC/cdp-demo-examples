@@ -2,10 +2,10 @@
 # TODO : Change it according to your python path and which python version you want to use (or remove it if you want to use default python installed)
 export PYSPARK_PYTHON=python
 spark-submit \
-    --class App.py \
+    --class pyspark/App.py \
     --master yarn \
     --deploy-mode cluster \
-    --principal {{ kerb_user }} \
-    --keytab {{ kerb_keytab }} \
-    --py-files App.py,AppConfig.py,Treatment.py \
-    App.py
+    --principal "{{ kerb_user }}" \
+    --keytab "{{ kerb_keytab }}" \
+    --files pyspark/App.py,pyspark/AppConfig.py,pyspark/Treatment.py \
+    pyspark/App.py
