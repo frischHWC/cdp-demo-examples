@@ -7,16 +7,16 @@ from AppConfig import *
 
 def main():
     
-    conf = SparkConf().setAppName(app_name).setMaster(master)
-    sc = SparkContext(conf=conf)
+    SparkConf().setAppName(app_name).setMaster(master)
     
-
     spark = SparkSession \
         .builder \
         .appName(app_name) \
         .getOrCreate()
 
     treatment_sql(spark)
+
+    spark.stop()
     
 
     
