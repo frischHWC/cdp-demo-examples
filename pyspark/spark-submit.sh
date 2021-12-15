@@ -6,6 +6,5 @@ spark-submit \
     --master yarn \
     --deploy-mode cluster \
     --principal "{{ kerb_user }}" \
-    --keytab "{{ kerb_keytab }}" \
-    --files pyspark/App.py,pyspark/AppConfig.py,pyspark/Treatment.py \
+    --keytab "{{ kerb_keytab }}" \ 
     pyspark/App.py
