@@ -2,6 +2,8 @@
 
 CREATE DATABASE fake_data;
 
-USE fake_data;
+USE random_datagen;
 
-CREATE TABLE fake_full_data AS SELECT * random_datagen.full_rd WHERE recording_time > 1617764585 ;
+CREATE TABLE hql_file (name string);
+
+INSERT INTO hql_file VALUES ('francois');
